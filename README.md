@@ -68,3 +68,5 @@
 2. [BSCP Tech Guide](https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/)
 3. [Vulns combination 1](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study)
 4. [Vulns combination 2](https://micahvandeusen.com/blog/burp-suite-certified-practitioner-exam-review/)
+5. [PayloadAlltheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+6. 
