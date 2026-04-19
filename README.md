@@ -1,11 +1,12 @@
 # Burp Suite CP — Cheat sheet (vulnerabilities by stage)
 
 ## Tools to be prepared
-- [JWT_tool](https://github.com/ticarpi/jwt_tool) - cheatsheet [here](/tools/jwt_tool.md)
-- JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/jwt_tool.md)
-- PHP deserialization [ysoserial](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md)
+- JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md)
+- PHP deserialization [phpggc](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md)
 - [SQLmap](github.com/sqlmapproject/sqlmap) - cheatsheet [here](/tools/sqlmap.md)
 - Burp
+  - [CSRF PoC](https://portswigger.net/burp/documentation/desktop/tools/engagement-tools/generate-csrf-poc)
+- [JWT_tool](https://github.com/ticarpi/jwt_tool) - cheatsheet [here](/tools/jwt_tool.md)
 
 ## Extensions
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
@@ -22,6 +23,9 @@
 ## Useful links and wordlists
 - XSS cheatsheet [link](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 - SQL cheatsheet [link](https://portswigger.net/web-security/sql-injection/cheat-sheet)
+- User list [link](https://portswigger.net/web-security/authentication/auth-lab-usernames)
+- Password list [link](https://portswigger.net/web-security/authentication/auth-lab-passwords)
+- JWT secrets list [link](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list)
 
 
 ## Stage 1 — Gain access

