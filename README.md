@@ -7,6 +7,8 @@
 - Burp
   - [CSRF PoC](https://portswigger.net/burp/documentation/desktop/tools/engagement-tools/generate-csrf-poc)
 - [JWT_tool](https://github.com/ticarpi/jwt_tool) - cheatsheet [here](/tools/jwt_tool.md)
+- Might be useful:
+  - [clickbandit](/tools/clickbandit.md)
 
 ## Extensions
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
