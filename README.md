@@ -31,43 +31,43 @@
 
 
 ## Stage 1 — Gain access
-- [Cross-site scripting](payloads/xss.md)
-- [Cross-site request forgery (CSRF)](payloads/csrf.md)
-- [Clickjacking](payloads/clickjacking.md)
-- [DOM-based vulnerabilities](payloads/dom-based.md)
-- [Cross-origin resource sharing (CORS)](payloads/cors.md)
-- [HTTP request smuggling](payloads/http-request-smuggling.md)
-- [Access control vulnerabilities](payloads/access-control.md)
-- [Authentication](payloads/authentication.md)
-- [Web cache poisoning](payloads/web-cache-poisoning.md)
-- [HTTP Host header attacks](payloads/host-header.md)
-- [OAuth authentication](payloads/oauth.md)
-- [JWT](payloads/jwt.md)
+- [Cross-site scripting](payloads/xss.md), payload status - ✅
+- [Cross-site request forgery (CSRF)](payloads/csrf.md), payload status - ✅
+- [Clickjacking](payloads/clickjacking.md), payload status - ✅
+- [DOM-based vulnerabilities](payloads/dom-based.md), payload status - ❌
+- [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ❌
+- [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ❌
+- [Access control vulnerabilities](payloads/access-control.md), payload status - ❌
+- [Authentication](payloads/authentication.md), payload status - ❌
+- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
+- [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
+- [OAuth authentication](payloads/oauth.md), payload status - ❌
+- [JWT](payloads/jwt.md), payload status - ❌
 
 ## Stage 2 — Privilege escalation
-- [SQL Injection](payloads/sqli.md)
-- [Cross-site scripting](payloads/xss.md)
-- [Cross-site request forgery (CSRF)](payloads/csrf.md)
-- [Clickjacking](payloads/clickjacking.md)
-- [DOM-based vulnerabilities](payloads/dom-based.md)
-- [Cross-origin resource sharing (CORS)](payloads/cors.md)
-- [HTTP request smuggling](payloads/http-request-smuggling.md)
-- [Access control vulnerabilities](payloads/access-control.md)
-- [Authentication](payloads/authentication.md)
-- [Web cache poisoning](payloads/web-cache-poisoning.md)
-- [HTTP Host header attacks](payloads/host-header.md)
-- [OAuth authentication](payloads/oauth.md)
-- [JWT](payloads/jwt.md)
+- [SQL Injection](payloads/sqli.md), payload status - ❌
+- [Cross-site scripting](payloads/xss.md), payload status - ✅
+- [Cross-site request forgery (CSRF)](payloads/csrf.md), payload status - ✅
+- [Clickjacking](payloads/clickjacking.md), payload status - ✅
+- [DOM-based vulnerabilities](payloads/dom-based.md), payload status - ❌
+- [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ❌
+- [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ❌
+- [Access control vulnerabilities](payloads/access-control.md), payload status - ❌
+- [Authentication](payloads/authentication.md), payload status - ❌
+- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
+- [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
+- [OAuth authentication](payloads/oauth.md), payload status - ❌
+- [JWT](payloads/jwt.md), payload status - ❌
 
 ## Stage 3 — Gain secret /home/carlos/secret
-- [SQL Injection](payloads/sqli.md)
-- [XML external entity (XXE) injection](payloads/xxe.md)
-- [Server-side request forgery (SSRF)](payloads/ssrf.md)
-- [OS command injection](payloads/command-injection.md)
-- [Server-side template injection](payloads/ssti.md)
-- [Directory traversal](payloads/directory-traversal.md)
-- [Insecure deserialization](payloads/insecure-deserialization.md)
-- [File upload vulnerabilities](payloads/file-upload.md)
+- [SQL Injection](payloads/sqli.md), payload status - ❌
+- [XML external entity (XXE) injection](payloads/xxe.md), payload status - ❌
+- [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ❌
+- [OS command injection](payloads/command-injection.md), payload status - ❌
+- [Server-side template injection](payloads/ssti.md), payload status - ❌
+- [Directory traversal](payloads/directory-traversal.md), payload status - ❌
+- [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ❌
+- [File upload vulnerabilities](payloads/file-upload.md), payload status - ❌
 
 ## Refs
 1. [BSCP certification (RUS)](https://habr.com/en/companies/jetinfosystems/articles/805297/)
