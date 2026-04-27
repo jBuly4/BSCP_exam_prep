@@ -35,7 +35,7 @@
 - [Cross-site request forgery (CSRF)](payloads/csrf.md), payload status - ✅
 - [Clickjacking](payloads/clickjacking.md), payload status - ✅
 - [DOM-based vulnerabilities](payloads/dom-based.md), payload status - ✅
-- [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ❌
+- [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ✅
 - [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ❌
 - [Access control vulnerabilities](payloads/access-control.md), payload status - ❌
 - [Authentication](payloads/authentication.md), payload status - ❌
