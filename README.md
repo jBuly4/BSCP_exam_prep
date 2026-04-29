@@ -37,8 +37,8 @@
 - [DOM-based vulnerabilities](payloads/dom-based.md), payload status - ✅
 - [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ✅
 - [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ✅
-- [Access control vulnerabilities](payloads/access-control.md), payload status - ❌
-- [Authentication](payloads/authentication.md), payload status - ❌
+- [Access control vulnerabilities](payloads/access-control.md), payload status - ✅
+- [Authentication](payloads/authentication.md), payload status - ✅
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ❌
@@ -52,8 +52,8 @@
 - [DOM-based vulnerabilities](payloads/dom-based.md), payload status - ✅
 - [Cross-origin resource sharing (CORS)](payloads/cors.md), payload status - ✅
 - [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ✅
-- [Access control vulnerabilities](payloads/access-control.md), payload status - ❌
-- [Authentication](payloads/authentication.md), payload status - ❌
+- [Access control vulnerabilities](payloads/access-control.md), payload status - ✅
+- [Authentication](payloads/authentication.md), payload status - ✅
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ❌
@@ -76,4 +76,5 @@
 4. [Vulns combination 2](https://micahvandeusen.com/blog/burp-suite-certified-practitioner-exam-review/)
 5. [PayloadAlltheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 6. [Req Smuggling](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
-7. 
+7. [BAC (RUS)](https://github.com/VasilyevaAn/bac-business-logic-checklist)
+8. 
