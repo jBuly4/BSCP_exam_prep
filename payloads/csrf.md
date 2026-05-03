@@ -1,3 +1,21 @@
+## General info
+Accoprding to [this](https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/) article:
+To understand if the form is vulnerable to a CSRF attack you can ask yourself:
+- What HTTP methods can be used to perform the email change action?
+- Is there an anti-CSRF token in the form?
+- Is the anti-CSRF token properly linked to the user session?
+- If session is managed through cookies, what is the SameSite attribute for the user session cookie?
+
+Checklist to test for CSRF:
+- HTTP Verb Tampering (POST -> GET)
+- Remove CSRF Token
+- CSRF Token not tied to user session
+- CSRF Token tied to non-session cookie
+- CSRF Token duplicated in cookie
+- SameSite Lax bypass via recent refresh cookie
+- SameSite Strict bypass via client-side redirect
+- SameSite Strict bypass via XSS on sibling domain
+
 ## LAB payloads
 ```html
 # no defense
@@ -171,11 +189,14 @@ document.forms[0].submit();
 - bypass via cookie refresh:
   - Browsers block popups from being opened unless they are triggered by a manual user interaction, such as a click. 
     The victim user will click on any page you send them to, so you can create popups using a global event handler 
-    as follows: ```<script>
+    as follows: 
+  - ```html
+    <script>
     window.onclick = () => {
         window.open('about:blank')
     }
-</script>```
+    </script>
+    ```
   - if a website doesn't include a SameSite attribute when setting a cookie, Chrome automatically applies Lax 
     restrictions by default. However, to  avoid breaking single sign-on (SSO) mechanisms, it doesn't actually 
     enforce these restrictions for the first 120 seconds on top-level POST requests. As a result, there is a 

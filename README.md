@@ -21,6 +21,9 @@
 - [Request smuggler](https://github.com/portswigger/http-request-smuggler) - cheatsheet 
   [here](/tools/burp_ext_req_smuggler.md)
 - [XSS cheatsheet](https://github.com/portswigger/xss-cheatsheet)
+- [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - some instructions from 
+  PortSwigger [here]
+  (https://portswigger.net/burp/documentation/desktop/tools/dom-invader/enabling), cheatsheet [here](/tools/burp_ext_dom_invader.md)
 
 ## Useful links and wordlists
 - XSS cheatsheet [link](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
@@ -28,7 +31,6 @@
 - User list [link](https://portswigger.net/web-security/authentication/auth-lab-usernames)
 - Password list [link](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 - JWT secrets list [link](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list)
-
 
 ## Stage 1 — Gain access
 - [Cross-site scripting](payloads/xss.md), payload status - ✅
@@ -39,7 +41,7 @@
 - [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ✅
 - [Access control vulnerabilities](payloads/access-control.md), payload status - ✅
 - [Authentication](payloads/authentication.md), payload status - ✅
-- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
+- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ❌
 - [JWT](payloads/jwt.md), payload status - ❌
@@ -54,7 +56,7 @@
 - [HTTP request smuggling](payloads/http-request-smuggling.md), payload status - ✅
 - [Access control vulnerabilities](payloads/access-control.md), payload status - ✅
 - [Authentication](payloads/authentication.md), payload status - ✅
-- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ❌
+- [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ❌
 - [JWT](payloads/jwt.md), payload status - ❌
