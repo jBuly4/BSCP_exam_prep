@@ -31,6 +31,7 @@
 - User list [link](https://portswigger.net/web-security/authentication/auth-lab-usernames)
 - Password list [link](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 - JWT secrets list [link](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list)
+- XML DTD finder [link](https://github.com/GoSecure/dtd-finder)
 
 ## Stage 1 — Gain access
 - [Cross-site scripting](payloads/xss.md), payload status - ✅
@@ -63,7 +64,7 @@
 
 ## Stage 3 — Gain secret /home/carlos/secret
 - [SQL Injection](payloads/sqli.md), payload status - ✅ but SSRF labs are ❌ sqlmap only for practice, labs - ❌
-- [XML external entity (XXE) injection](payloads/xxe.md), payload status - ❌
+- [XML external entity (XXE) injection](payloads/xxe.md), payload status - ✅ but OAST labs are ❌
 - [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ❌
 - [OS command injection](payloads/command-injection.md), payload status - ❌
 - [Server-side template injection](payloads/ssti.md), payload status - ❌
