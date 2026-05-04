@@ -157,20 +157,6 @@ The lab server is running a (simulated) EC2 metadata endpoint at the default URL
 ```
 - upload it as an avatar in comment section
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Blind XXE with out-of-band interaction (collab)
 TODO
 
