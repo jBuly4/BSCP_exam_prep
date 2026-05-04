@@ -26,12 +26,14 @@
   (https://portswigger.net/burp/documentation/desktop/tools/dom-invader/enabling), cheatsheet [here](/tools/burp_ext_dom_invader.md)
 
 ## Useful links and wordlists
+- Great [repo](https://github.com/swisskyrepo/PayloadsAllTheThings)
 - XSS cheatsheet [link](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 - SQL cheatsheet [link](https://portswigger.net/web-security/sql-injection/cheat-sheet)
 - User list [link](https://portswigger.net/web-security/authentication/auth-lab-usernames)
 - Password list [link](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 - JWT secrets list [link](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list)
 - XML DTD finder [link](https://github.com/GoSecure/dtd-finder)
+- repo for [SSTI cheatsheet](https://github.com/Hackmanit/template-injection-table) and [cheatsheet](https://cheatsheet.hackmanit.de/template-injection-table/) itself
 
 ## Stage 1 — Gain access
 - [Cross-site scripting](payloads/xss.md), payload status - ✅
@@ -67,7 +69,7 @@
 - [XML external entity (XXE) injection](payloads/xxe.md), payload status - ✅ but OAST labs are ❌
 - [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅ but OAST labs are ❌
 - [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
-- [Server-side template injection](payloads/ssti.md), payload status - ❌
+- [Server-side template injection](payloads/ssti.md), payload status - ✅
 - [Directory traversal](payloads/directory-traversal.md), payload status - ❌
 - [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ❌
 - [File upload vulnerabilities](payloads/file-upload.md), payload status - ❌
