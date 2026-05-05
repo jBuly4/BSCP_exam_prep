@@ -70,7 +70,7 @@
 - [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅ but OAST labs are ❌
 - [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
 - [Server-side template injection](payloads/ssti.md), payload status - ✅
-- [Directory traversal](payloads/directory-traversal.md), payload status - ❌
+- [Directory/Path traversal](payloads/path-traversal.md), payload status - ✅
 - [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ❌
 - [File upload vulnerabilities](payloads/file-upload.md), payload status - ❌
 
