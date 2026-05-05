@@ -1,8 +1,8 @@
 # Burp Suite CP — Cheat sheet (vulnerabilities by stage)
 
 ## Tools to be prepared
-- JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md)
-- PHP deserialization [phpggc](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md)
+- JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md) - ✅
+- PHP deserialization [phpggc](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md) - ✅
 - [SQLmap](github.com/sqlmapproject/sqlmap) - cheatsheet [here](/tools/sqlmap.md)
 - Burp
   - [CSRF PoC](https://portswigger.net/burp/documentation/desktop/tools/engagement-tools/generate-csrf-poc)
@@ -11,8 +11,7 @@
   - [clickbandit](/tools/clickbandit.md)
 
 ## Extensions
-- [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
-  [here](/tools/burp_ext_jwt-editor.md)
+- - [Java Deserialization Scanner](https://github.com/federicodotta/Java-Deserialization-Scanner), cheatsheet [here](/tools/ysoserial.md) - ✅
 - [Param Miner](https://github.com/PortSwigger/param-miner) - cheatsheet 
   [here](/tools/burp_ext_param-miner.md)
 - Turbo Intruder
@@ -24,6 +23,8 @@
 - [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - some instructions from 
   PortSwigger [here]
   (https://portswigger.net/burp/documentation/desktop/tools/dom-invader/enabling), cheatsheet [here](/tools/burp_ext_dom_invader.md)
+- [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
+  [here](/tools/burp_ext_jwt-editor.md)
 
 ## Useful links and wordlists
 - Great [repo](https://github.com/swisskyrepo/PayloadsAllTheThings)
@@ -71,7 +72,7 @@
 - [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
 - [Server-side template injection](payloads/ssti.md), payload status - ✅
 - [Directory/Path traversal](payloads/path-traversal.md), payload status - ✅
-- [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ❌
+- [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ✅
 - [File upload vulnerabilities](payloads/file-upload.md), payload status - ❌
 
 ## Refs
@@ -79,7 +80,9 @@
 2. [BSCP Tech Guide](https://blog.leonardotamiano.xyz/tech/bscp-technical-guide/)
 3. [Vulns combination 1](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study)
 4. [Vulns combination 2](https://micahvandeusen.com/blog/burp-suite-certified-practitioner-exam-review/)
+5. [Vulns combination 3](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
 5. [PayloadAlltheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 6. [Req Smuggling](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
 7. [BAC (RUS)](https://github.com/VasilyevaAn/bac-business-logic-checklist)
-8. 
+8. Good [BSCP repo with labs]( https://github.com/frank-leitner/portswigger-websecurity-academy)
+9. 
