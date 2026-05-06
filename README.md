@@ -13,16 +13,14 @@
 ## Extensions
 - - [Java Deserialization Scanner](https://github.com/federicodotta/Java-Deserialization-Scanner), cheatsheet [here](/tools/ysoserial.md) - ✅
 - [Param Miner](https://github.com/PortSwigger/param-miner) - cheatsheet 
-  [here](/tools/burp_ext_param-miner.md)
+  [here](/tools/burp_ext_param-miner.md) - ✅
 - Turbo Intruder
 - [Hackvertor](https://github.com/portswigger/hackvertor) - cheatsheet 
   [here](/tools/burp_ext_hackvertor.md)
 - [Request smuggler](https://github.com/portswigger/http-request-smuggler) - cheatsheet 
   [here](/tools/burp_ext_req_smuggler.md)
 - [XSS cheatsheet](https://github.com/portswigger/xss-cheatsheet)
-- [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - some instructions from 
-  PortSwigger [here]
-  (https://portswigger.net/burp/documentation/desktop/tools/dom-invader/enabling), cheatsheet [here](/tools/burp_ext_dom_invader.md)
+- [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - short docs [here](/tools/burp_ext_dom_invader.md) - ✅
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
   [here](/tools/burp_ext_jwt-editor.md)
 
@@ -73,7 +71,7 @@
 - [Server-side template injection](payloads/ssti.md), payload status - ✅
 - [Directory/Path traversal](payloads/path-traversal.md), payload status - ✅
 - [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ✅
-- [File upload vulnerabilities](payloads/file-upload.md), payload status - ❌
+- [File upload vulnerabilities](payloads/file-upload.md), payload status - ✅
 
 ## Refs
 1. [BSCP certification (RUS)](https://habr.com/en/companies/jetinfosystems/articles/805297/)
@@ -81,8 +79,7 @@
 3. [Vulns combination 1](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study)
 4. [Vulns combination 2](https://micahvandeusen.com/blog/burp-suite-certified-practitioner-exam-review/)
 5. [Vulns combination 3](https://github.com/DingyShark/BurpSuiteCertifiedPractitioner)
-5. [PayloadAlltheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-6. [Req Smuggling](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
-7. [BAC (RUS)](https://github.com/VasilyevaAn/bac-business-logic-checklist)
-8. Good [BSCP repo with labs]( https://github.com/frank-leitner/portswigger-websecurity-academy)
-9. 
+6. [PayloadAlltheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+7. [Req Smuggling](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
+8. [BAC (RUS)](https://github.com/VasilyevaAn/bac-business-logic-checklist)
+9. Good [BSCP repo with labs]( https://github.com/frank-leitner/portswigger-websecurity-academy)
