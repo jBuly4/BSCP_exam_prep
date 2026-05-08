@@ -31,7 +31,8 @@ scanner (it is possible to disable the checks in the options tab)
 - Based on this article: [BSCP certification (RUS)](https://habr.com/en/companies/jetinfosystems/articles/805297/)
 - steps for practice exam:
   - find admin_prefs cookie after deleting user
-  - set its value as insertion point on tab "Manual testing" and press attack
+  - set its value as insertion point on tab "Manual testing" and press attack (remember to check all types of attack 
+   sleep, DNS, CPU)
   - extension should define potential vuln
 
 ![java-des-scanner](../img/insecure-deserialization/java_des_scanner.png "Identify vulns using extension")

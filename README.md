@@ -3,7 +3,7 @@
 ## Tools to be prepared
 - JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md) - ✅
 - PHP deserialization [phpggc](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md) - ✅
-- [SQLmap](github.com/sqlmapproject/sqlmap) - cheatsheet [here](/tools/sqlmap.md)
+- [SQLmap](github.com/sqlmapproject/sqlmap) - cheatsheet [here](/tools/sqlmap.md) - ✅
 - Burp
   - [CSRF PoC](https://portswigger.net/burp/documentation/desktop/tools/engagement-tools/generate-csrf-poc)
 - [JWT_tool](https://github.com/ticarpi/jwt_tool) - cheatsheet [here](/tools/jwt_tool.md)
@@ -16,7 +16,7 @@
   [here](/tools/burp_ext_param-miner.md) - ✅
 - Turbo Intruder
 - [Hackvertor](https://github.com/portswigger/hackvertor) - cheatsheet 
-  [here](/tools/burp_ext_hackvertor.md)
+  [here](/tools/burp_ext_hackvertor.md) - ✅
 - [Request smuggler](https://github.com/portswigger/http-request-smuggler) - cheatsheet 
   [here](/tools/burp_ext_req_smuggler.md)
 - [XSS cheatsheet](https://github.com/portswigger/xss-cheatsheet)

