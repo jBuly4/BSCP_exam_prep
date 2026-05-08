@@ -55,7 +55,7 @@ onerror=alert; throw 1
 ```html
 '-alert(1)-'
 ';alert(1)//
-\';alert(10//
+\';alert(1)//
 &apos;alert(1);//
 ```
 #### JQuery
