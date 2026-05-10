@@ -22,7 +22,7 @@
 - [XSS cheatsheet](https://github.com/portswigger/xss-cheatsheet)
 - [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - short docs [here](/tools/burp_ext_dom_invader.md) - ✅
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
-  [here](/tools/burp_ext_jwt-editor.md)
+  [here](/tools/burp_ext_jwt-editor.md) - ✅
 
 ## Useful links and wordlists
 - Great [repo](https://github.com/swisskyrepo/PayloadsAllTheThings)
@@ -46,7 +46,7 @@
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ✅ but SSRF labs are ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ✅ but SSRF labs are ❌
-- [JWT](payloads/jwt.md), payload status - ❌
+- [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 2 — Privilege escalation
 - [SQL Injection](payloads/sqli.md), payload status - ✅ but OAST labs are ❌ sqlmap only for practice, labs - ❌
@@ -61,7 +61,7 @@
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ✅ but SSRF labs are ❌
 - [OAuth authentication](payloads/oauth.md), payload status - ✅ but SSRF labs are ❌
-- [JWT](payloads/jwt.md), payload status - ❌
+- [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 3 — Gain secret /home/carlos/secret
 - [SQL Injection](payloads/sqli.md), payload status - ✅ but SSRF labs are ❌ sqlmap only for practice, labs - ❌
