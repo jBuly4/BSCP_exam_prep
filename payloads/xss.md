@@ -1,4 +1,6 @@
 ## General info
+- XSS cheatsheet [link](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+
 #### DOM-based
 - Sources:
   - document.URLUnencoded

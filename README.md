@@ -18,7 +18,7 @@
 - [Hackvertor](https://github.com/portswigger/hackvertor) - cheatsheet 
   [here](/tools/burp_ext_hackvertor.md) - ✅
 - [Request smuggler](https://github.com/portswigger/http-request-smuggler) - cheatsheet 
-  [here](/tools/burp_ext_req_smuggler.md)
+  [here](/tools/burp_ext_req_smuggler.md) - ✅
 - [XSS cheatsheet](https://github.com/portswigger/xss-cheatsheet)
 - [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - short docs [here](/tools/burp_ext_dom_invader.md) - ✅
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
