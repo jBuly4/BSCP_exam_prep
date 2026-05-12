@@ -49,7 +49,7 @@
 - [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 2 — Privilege escalation
-- [SQL Injection](payloads/sqli.md), payload status - ✅ but OAST labs are ❌ sqlmap only for practice, labs - ❌
+- [SQL Injection](payloads/sqli.md), payload status - ✅, sqlmap only for practice exam, labs - ❌
 - [Cross-site scripting](payloads/xss.md), payload status - ✅
 - [Cross-site request forgery (CSRF)](payloads/csrf.md), payload status - ✅
 - [Clickjacking](payloads/clickjacking.md), payload status - ✅
@@ -64,7 +64,7 @@
 - [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 3 — Gain secret /home/carlos/secret
-- [SQL Injection](payloads/sqli.md), payload status - ✅ but SSRF labs are ❌ sqlmap only for practice, labs - ❌
+- [SQL Injection](payloads/sqli.md), payload status - ✅, sqlmap only for practice exam, labs - ❌
 - [XML external entity (XXE) injection](payloads/xxe.md), payload status - ✅ but OAST labs are ❌
 - [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅ but OAST labs are ❌
 - [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
