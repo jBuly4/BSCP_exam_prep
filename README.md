@@ -60,7 +60,7 @@
 - [Authentication](payloads/authentication.md), payload status - ✅
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ✅
-- [OAuth authentication](payloads/oauth.md), payload status - ✅ but SSRF labs are ❌
+- [OAuth authentication](payloads/oauth.md), payload status - ✅
 - [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 3 — Gain secret /home/carlos/secret
