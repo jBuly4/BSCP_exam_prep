@@ -66,7 +66,7 @@
 ## Stage 3 — Gain secret /home/carlos/secret
 - [SQL Injection](payloads/sqli.md), payload status - ✅, sqlmap only for practice exam, labs - ❌
 - [XML external entity (XXE) injection](payloads/xxe.md), payload status - ✅
-- [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅ but OAST labs are ❌
+- [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅
 - [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
 - [Server-side template injection](payloads/ssti.md), payload status - ✅
 - [Directory/Path traversal](payloads/path-traversal.md), payload status - ✅
