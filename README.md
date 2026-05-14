@@ -11,7 +11,7 @@
   - [clickbandit](/tools/clickbandit.md)
 
 ## Extensions
-- - [Java Deserialization Scanner](https://github.com/federicodotta/Java-Deserialization-Scanner), cheatsheet [here](/tools/ysoserial.md) - ✅
+- [Java Deserialization Scanner](https://github.com/federicodotta/Java-Deserialization-Scanner), cheatsheet [here](/tools/ysoserial.md) - ✅
 - [Param Miner](https://github.com/PortSwigger/param-miner) - cheatsheet 
   [here](/tools/burp_ext_param-miner.md) - ✅
 - Turbo Intruder
@@ -23,6 +23,7 @@
 - [DOM-Invader](https://portswigger.net/burp/documentation/desktop/tools/dom-invader) - short docs [here](/tools/burp_ext_dom_invader.md) - ✅
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
   [here](/tools/burp_ext_jwt-editor.md) - ✅
+- [Collaborator everywhere](https://github.com/portswigger/collaborator-everywhere-v2) - ✅
 
 ## Useful links and wordlists
 - Great [repo](https://github.com/swisskyrepo/PayloadsAllTheThings)
@@ -83,3 +84,4 @@
 7. [Req Smuggling](https://medium.com/@muhammadosama0121/http-request-smuggling-f28485cd53dd)
 8. [BAC (RUS)](https://github.com/VasilyevaAn/bac-business-logic-checklist)
 9. Good [BSCP repo with labs]( https://github.com/frank-leitner/portswigger-websecurity-academy)
+10. [Discover hidden attack surface](https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface)
