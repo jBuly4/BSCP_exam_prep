@@ -46,7 +46,7 @@
 - [Authentication](payloads/authentication.md), payload status - ✅
 - [Web cache poisoning](payloads/web-cache-poisoning.md), payload status - ✅
 - [HTTP Host header attacks](payloads/host-header.md), payload status - ✅
-- [OAuth authentication](payloads/oauth.md), payload status - ✅ but SSRF labs are ❌
+- [OAuth authentication](payloads/oauth.md), payload status - ✅
 - [JWT](payloads/jwt.md), payload status - ✅
 
 ## Stage 2 — Privilege escalation
@@ -68,7 +68,7 @@
 - [SQL Injection](payloads/sqli.md), payload status - ✅, sqlmap only for practice exam, labs - ❌
 - [XML external entity (XXE) injection](payloads/xxe.md), payload status - ✅
 - [Server-side request forgery (SSRF)](payloads/ssrf.md), payload status - ✅
-- [OS command injection](payloads/command-injection.md), payload status - ✅ but OAST labs are ❌
+- [OS command injection](payloads/command-injection.md), payload status - ✅
 - [Server-side template injection](payloads/ssti.md), payload status - ✅
 - [Directory/Path traversal](payloads/path-traversal.md), payload status - ✅
 - [Insecure deserialization](payloads/insecure-deserialization.md), payload status - ✅

