@@ -1,5 +1,7 @@
 ## General info
 - XSS cheatsheet [link](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+- various [xxs payloads](https://github.com/yogsec/XSS-Payloads)
+- PyalodaAllTheThings [XSS](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection)
 
 #### DOM-based
 - Sources:

