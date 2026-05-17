@@ -1,5 +1,8 @@
 # Burp Suite CP — Cheat sheet (vulnerabilities by stage)
 
+## Guides
+[Exam guide (rus)](./guides/bscp-exam-triage-algorithm.md) by [Angelionix](https://github.com/Angelionix).
+
 ## Tools to be prepared
 - JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md) - ✅
 - PHP deserialization [phpggc](github.com/ambionics/phpggc) - cheatsheet [here](/tools/phpggc.md) - ✅
@@ -24,6 +27,8 @@
 - [JWT-editor](https://github.com/PortSwigger/jwt-editor) - cheatsheet 
   [here](/tools/burp_ext_jwt-editor.md) - ✅
 - [Collaborator everywhere](https://github.com/portswigger/collaborator-everywhere-v2) - ✅
+- [Active Scan++](https://github.com/portswigger/active-scan-plus-plus) - ✅ - just install to improve default Burp 
+  scanner
 
 ## Useful links and wordlists
 - Great [repo](https://github.com/swisskyrepo/PayloadsAllTheThings)
@@ -34,6 +39,8 @@
 - JWT secrets list [link](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list)
 - XML DTD finder [link](https://github.com/GoSecure/dtd-finder)
 - repo for [SSTI cheatsheet](https://github.com/Hackmanit/template-injection-table) and [cheatsheet](https://cheatsheet.hackmanit.de/template-injection-table/) itself
+- Some [wordlists](https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study/tree/main/wordlists) 
+  from [botesjuan](https://github.com/botesjuan)
 
 ## Stage 1 — Gain access
 - [Cross-site scripting](payloads/xss.md), payload status - ✅

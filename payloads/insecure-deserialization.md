@@ -4,6 +4,7 @@
 - You can declare private attributes for PHP classes. According to PS theory: all of the original object's attributes are stored in the serialized data stream, **including any private fields**
 
 #### PHP format
+- PHP deserialization tool [here](/tools/phpggc.md)
 ```
 O:4:"User":2:{s:4:"name":s:6:"carlos";s:10:"isLoggedIn":b:1;}
 ```

