@@ -1,7 +1,8 @@
 # Burp Suite CP — Cheat sheet (vulnerabilities by stage)
 
 ## Guides
-[Exam guide (rus)](./guides/bscp-exam-triage-algorithm.md) by [Angelionix](https://github.com/Angelionix).
+- [Exam guide (rus)](./guides/bscp-exam-triage-algorithm.md) by [Angelionix](https://github.com/Angelionix).
+- [Here](./guides/bscp-exam-review.md) you may find what task combination I got and what helped me to solve them.
 
 ## Tools to be prepared
 - JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md) - ✅
