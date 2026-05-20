@@ -1,7 +1,8 @@
 ## General thoughts
 - systematize your payloads even if you won't use it. that at least will help to refresh your knowledge and be 
   familiar which payload for which case
-- check and read these repos before exam - they definitely gonna help you. Then open browser tabs with them:
+- check and read these repos before exam - they definitely gonna help you. Don't forget to open browser tabs with 
+  them before exam:
   - https://github.com/DingyShark/BurpSuiteCertifiedPractitioner
   - https://py-us3r.github.io/bscp-roadmap-bscproadmap/
   - https://github.com/botesjuan/Burp-Suite-Certified-Practitioner-Exam-Study
@@ -17,6 +18,7 @@
 - Req smuggling + XSS
 - BAC + cookie
 - OS command injection with SSRF
+
 #### Req smuggling + XSS
 - scan specific paths (/, search function, /post/comment or something like this) - I got tentative HTTP smuggling 
   for home page and High for /post/comment
@@ -46,5 +48,25 @@
 
 ### 2nd APP
 - Host header injection
-- Some kind of IDOR for json roleid
+- Access control in JSON roleid
 - RFI
+
+#### Host header injection
+- scanner found this vuln, but the difficulty was I had to understand how to exploit it. After some time I noticed 
+  that app has reflection of host header inside js source link
+- next step - identify how to bypass validation of host header to get working link to exploit server
+- found two combination: **exploit-address/app-address** - passed validation but didn't work, 
+  **exploit-address?app-address** - worked well
+- then craft standard XSS payload to send session cookie to collab
+
+#### Access control in JSON roleid
+- when I gained access to carlos - new function of changing email
+- in response got json with role ID - that is the case from Access controls LABS:
+  - log in -> change email -> find 302 -> change roleid and find value for admin rights
+  - solved that part only when I realized not to limit myself with small ranges of numbers
+
+#### RFI
+- main function here was uploading image via link. according to repos mentioned above - that might be the RFI vector
+- so:
+  - exploit server - path to file + php script in body
+  - app - paste url and bypass validation with addition of #somethin.png

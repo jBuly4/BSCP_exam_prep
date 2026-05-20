@@ -1,10 +1,10 @@
 # Burp Suite Certified Practitioner — Cheat sheet (vulnerabilities by stage)
 - earned May, 2026
-- attempts: 1
+- attempts: 1 😎
 
 ## Guides
 - [Exam guide (rus)](./guides/bscp-exam-triage-algorithm.md) by [Angelionix](https://github.com/Angelionix).
-- [Here](./guides/bscp-exam-review.md) you may find what task combination I've got and what helped me to solve them.
+- [Here](./guides/bscp-exam-review.md) you may find which task combination I've got and what helped me to solve them.
 
 ## Tools to be prepared
 - JAVA deserialization [ysoserial](github.com/frohoff/ysoserial) - cheatsheet [here](/tools/ysoserial.md) - ✅
