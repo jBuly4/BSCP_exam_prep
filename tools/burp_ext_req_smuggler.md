@@ -7,11 +7,11 @@ click 'OK'.
 4. If you're using Burp Suite Pro, find the reported vulnerability in the dashboard and open the first attached request.
 5. If you're using Burp Suite Community, copy the request from the output tab and paste it into the repeater, then 
 complete the 'Target' details on the top right.
-6. Right click on the request and select 'Smuggle attack (CL.TE)'.
+6. Right-click on the request and select 'Smuggle attack (CL.TE)'.
 7. Change the value of the 'prefix' variable to 'G', then click 'Attack' and confirm that one response says 
 'Unrecognised method GPOST'.
 
-## Step by step guied
+## Step-by-step guide
 Based on [Peter de Witte](https://peter-de-witte.medium.com/how-to-use-the-http-request-smuggler-extension-to-perform-an-attack-8a09c1a6801b) article:
 - Send an unmodified and working post-request to the repeater. Test for a valid response.
 
